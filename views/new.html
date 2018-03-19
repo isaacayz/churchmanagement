@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        MEMBERS RESOURCE APP
+    </title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <!--Custom css-->
+    <link href="../public/styles.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div id="wrapper" class="active">
+
+        <!-- Sidebar -->
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul id="sidebar_menu" class="sidebar-nav">
+                <li class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
+            </ul>
+            <ul class="sidebar-nav" id="sidebar">
+                <li><a href="new.html" class="btn btn-primary">Add Members<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                <li><a href="members.html" class="btn btn-primary"> List All Members<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                <li><a href="edit.html" class="btn btn-primary"> Edit Member<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                <li><a href="members.html" class="btn btn-primary"> Delete Member<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+            </ul>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <!-- Keep all page content within the page-content inset div! -->
+            <div class="page-content inset">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="container">
+                            <div class="row main">
+                                <div class="main-login main-center">
+                                    <h5>Kindly, enter Member's details accordingly.</h5>
+                                    <form method="post" action="members.html">
+                                        <div class="form-group">
+                                            <label for="fname" class="cols-sm-2 control-label">Name</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                                    <input type="text" name="fname" id="fname" class="form-control" placeholder="Member's name" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="phone" class="cols-sm-2 control-label">Mobile Phone</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                                    <input type="number" class="form-control" name="phone" id="phone" placeholder="Member's phone number" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="status" class="cols-sm-2 control-label">Worker or Member</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-neuter fa-lg" aria-hidden="true"></i></span>
+                                                    <select class="form-control" id="status">
+                                                            <option value="null">Pick</option>
+                                                            <option value="minister">Minister</option>
+                                                            <option value="worker">Worker</option>
+                                                            <option value="member">Member</option>
+                                                          </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="email" class="cols-sm-2 control-label">Email</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-calendar-o fa-lg" aria-hidden="true"></i></span>
+                                                    <input type="email" class="form-control" name="email" id="email" placeholder="Member's email" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="gender" class="cols-sm-2 control-label">Gender</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-universal-access fa-lg" aria-hidden="true"></i></span>
+                                                    <div class="form-check">&nbsp;
+                                                        <label class="form-check-label">
+                                                              <input class="form-check-input" type="radio" name="exampleRadios" id="gender" value="male" checked>
+                                                              Male
+                                                            </label>
+                                                    </div>
+                                                    <div class="form-check">&nbsp;
+                                                        <label class="form-check-label">
+                                                              <input class="form-check-input" type="radio" name="exampleRadios" id="gender" value="female">
+                                                              Female
+                                                            </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="marital" class="cols-sm-2 control-label">Marital Status</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-neuter fa-lg" aria-hidden="true"></i></span>
+                                                    <select class="form-control" id="marital">
+                                                            <option value="null">Pick</option>
+                                                            <option value="married">Married</option>
+                                                            <option value="single">Single</option>
+                                                          </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="address" class="cols-sm-2 control-label">Member Address</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa  fa-sort-numeric-asc fa-lg" aria-hidden="true"></i></span>
+                                                    <textarea type="text" cols="5" rows="5" class="form-control" name="address" id="address" placeholder="Member's Address"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group ">
+                                            <button id="button" class="btn btn-primary btn-lg btn-block login-button">Add Member </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Jquery -->
+    <script>
+        window.jQuery = window.$ = require('jquery');
+        const ipc = require('electron').ipcRenderer;
+        document.querySelector('form').addEventListener('submit', (e) => {
+            var mysql = require('mysql');
+            var connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: 'password',
+                database: 'mylife'
+            });
+            connection.connect((err) => {
+                if (err) {
+                    console.log(err.stack);
+                } else {
+                    console.log('Connection successfully created!');
+                }
+            });
+            //get form values
+            var values = [document.getElementById('fname').value + "','" + document.getElementById('phone').value + "','" + document.getElementById('status').value + "','" + document.getElementById('email').value + "','" + document.getElementById('gender').value + "','" + document.getElementById('marital').value + "','" + document.getElementById('address').value];
+            // Query goes here
+            $query = "INSERT INTO " + `contacts` + "(`first_name`, `phone`, `status`, `email`, `gender`, `marital`, `address`) VALUES ('" + values + "')";
+
+            connection.query($query, (err, rows) => {
+                if (err) {
+                    console.log('An error occured with the query', err);
+                } else {
+                    console.log(rows);
+                }
+            });
+            connection.end(() => {
+                console.log('Connection successfully closed!');
+            });
+            alert('Added successfully!');
+        });
+    </script>
+
+    <!-- bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- custom javascript -->
+    <script src="../public/script.js"></script>
+</body>
+
+</html>

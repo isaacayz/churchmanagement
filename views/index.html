@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        MEMBERS RESOURCE APP
+    </title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <!--Custom css-->
+    <link href="../public/styles.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="wrapper" class="active">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul id="sidebar_menu" class="sidebar-nav">
+                <li class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
+            </ul>
+            <ul class="sidebar-nav" id="sidebar">
+                <li><a href="new.html" class="btn btn-primary">Add Member<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                <li><a href="members.html" class="btn btn-primary"> List All Members<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                <li><a href="edit.html" class="btn btn-primary"> Edit Member<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                <li><a href="members.html" class="btn btn-primary"> Delete Member<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+            </ul>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <!-- Keep all page content within the page-content inset div! -->
+            <div class="page-content inset">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="well lead">
+                            The Redeemed Christian Church of God, Covenant of God Parish <br> <br>
+                            <mark>Workers/Members Directory</mark>
+                        </p>
+                        <div class="container">
+                            <div class="row main">
+                                <div class="main-login main-center">
+                                    <h5>Admin Login.</h5>
+                                    <form method="#" action="members.html">
+                                        <div class="form-group">
+                                            <label for="username" class="cols-sm-2 control-label">Username</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                                    <input type="text" name="username" id="username" class="form-control" placeholder="Admin Username" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="password" class="cols-sm-2 control-label">Password</label>
+                                            <div class="cols-sm-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <button id="button" class="btn btn-primary btn-lg btn-block login-button">Login </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+    <!-- Jquery -->
+    <script>
+        window.jQuery = window.$ = require('jquery');
+    </script>
+
+    <!-- bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- custom javascript -->
+    <script src="../public/script.js"></script>
+</body>
+
+</html>

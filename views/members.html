@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        MEMBERS RESOURCE APP
+    </title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <!--Custom css-->
+    <link href="../public/styles.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div id="wrapper" class="active">
+
+        <!-- Sidebar -->
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul id="sidebar_menu" class="sidebar-nav">
+                <li class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
+            </ul>
+            <ul class="sidebar-nav" id="sidebar">
+                <li><a href="new.html" class="btn btn-primary">Add Member<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                <li><a href="members.html" class="btn btn-primary"> List All Members<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                <li><a href="edit.html" class="btn btn-primary"> Edit Members<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+                <li><a href="members.html" class="btn btn-primary"> Delete Members<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+            </ul>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <!-- Keep all page content within the page-content inset div! -->
+            <div class="page-content inset">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-sm-6">
+                                        <h4>Member's Datatable</h4>
+                                    </div>
+                                    <!-- Search base -->
+                                    <div class="form-group">
+                                        <div class="cols-sm-6">
+                                            <div class="input-group col-sm-12">
+                                                <input type="text" class="form-control" name="search" id="search" placeholder="Search Members List" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Close search -->
+                                    <div class="table-responsive">
+                                        <table id="mytable" class="table table-bordred table-striped">
+                                            <thead>
+                                                <th><input type="checkbox" id="checkall" /></th>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Work Force</th>
+                                                <th>Email</th>
+                                                <th>Gender</th>
+                                                <th>Marital status</th>
+                                                <th>Address</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+
+                                            </thead>
+                                            <tbody>
+                                                <!-- Pulls from database -->
+                                            </tbody>
+                                        </table>
+                                        <div class="clearfix"></div>
+                                        <ul class="pagination pull-right">
+                                            <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+
+                                    </div>
+                                    <div class="modal-footer ">
+                                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="students/new">Add Member</a>
+    <!-- Jquery -->
+    <script>
+        window.jQuery = window.$ = require('jquery');
+        //var newTable = document.createElement('table');
+        var myTable = document.getElementById('mytable');
+        // Query string goes here
+        let query = 'SELECT * FROM `contacts` WHERE `id` > 0';
+        //Create conection
+        var mysql = require('mysql');
+        var connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: 'password',
+            database: 'mylife'
+        });
+
+        function insertQuery(query) {
+
+            connection.connect((query, err) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log('Connection successfully created!');
+                }
+            });
+            //Query the db
+            connection.query(query, (err, res, rows) => {
+                if (err) {
+                    console.log('An error occured with the query', err);
+                } else {
+                    for (var i = 0; i < res.length; i++) {
+                        var row = myTable.insertRow(i + 1);
+                        for (var j = 0; j < rows.length; j++) {
+                            var cell = row.insertCell(j);
+                            if (j == 0) {
+                                cell.innerHTML = '<th><input type="checkbox" id="checkall" /></th>';
+                            } else if (j == 1) {
+                                cell.innerHTML = res[i].first_name;
+                            } else if (j == 2) {
+                                cell.innerHTML = res[i].phone;
+                            } else if (j == 3) {
+                                cell.innerHTML = res[i].status;
+                            } else if (j == 4) {
+                                cell.innerHTML = res[i].email;
+                            } else if (j == 5) {
+                                cell.innerHTML = res[i].gender;
+                            } else if (j == 6) {
+                                cell.innerHTML = res[i].marital;
+                            } else if (j == 7) {
+                                cell.innerHTML = res[i].address;
+                            } else if (j == 8) {
+                                cell.innerHTML = '<a href="#" title="Edit" class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></a>';
+                            } else {
+                                cell.innerHTML = '<a href="#" title="Delete" class="btn btn-danger btn-xs" data-title="Edit"><span class="glyphicon glyphicon-trash"></span></a>';
+                            }
+                        }
+                    }
+                }
+            });
+
+            connection.end(() => {
+                //console.log('Connection successfully closed!');
+            });
+        }
+        insertQuery(query);
+
+        function searchMember() {
+            var search = document.getElementById('search');
+            connection.connect((query, err) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log('Connected!');
+                }
+            });
+            connection.query(query, (err, res, rows) => {
+                        if (err) {
+                            console.log('An error occured with the query', err);
+                        } else {
+
+                        }
+                    }
+    </script>
+
+    <!-- bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- custom javascript -->
+    <script src="../public/script.js"></script>
+</body>
+
+</html>

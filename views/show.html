@@ -1,0 +1,92 @@
+<% include layouts/header.ejs %>
+
+
+<div id="wrapper" class="active">
+
+    <!-- Sidebar -->
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul id="sidebar_menu" class="sidebar-nav">
+            <li class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
+        </ul>
+        <ul class="sidebar-nav" id="sidebar">
+            <li><a href="new" class="btn btn-primary">Create Student<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+            <li><a href="../students" class="btn btn-primary"> List All<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+            <li><a href="../students" class="btn btn-primary"> Edit<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+            <li><a href="../students" class="btn btn-primary"> Delete Student<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+        </ul>
+    </div>
+
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content inset">
+            <div class="row">
+                <div class="col-md-12">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            <b>Name:&nbsp;</b>
+                        </dt>
+                        <dd>
+                            <%= student.fname %> <%= student.lname %>
+                        </dd>
+                        <dt>
+                            <b>Age:&nbsp;</b>
+                        </dt>
+                        <dd>
+                            <%= student.age %>
+                        </dd>
+                        <dt>
+                            <b>Sex:&nbsp;</b>
+                        </dt>
+                        <dd>
+                            <%= student.sex %>
+                        </dd>
+                        <dt>
+                            <b>Course of study:&nbsp;</b>
+                        </dt>
+                        <dd>
+                            <%= student.course %>
+                        </dd>
+                        <dt>
+                            <b>Matriculation number:&nbsp;</b>
+                        </dt>
+                        <dd>
+                            <%= student.matric %>
+                        </dd>
+                        <dt>
+                            <b>About student:&nbsp;</b>
+                        </dt>
+                        <dd>
+                            <%= student.desc %>
+                        </dd>
+
+
+                        <dt>
+                            <p data-placement="top" data-toggle="tooltip" title="Edit">
+                                    <a href="/students/<%= student._id %>/edit" class="btn btn-primary btn-xs" data-title="Edit" >
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </a>
+                            </p>
+                        </dt>
+                        <dd>
+                                <form action="/students/<%= student._id %>?_method=DELETE"  method="POST">
+                                    <p data-placement="top" data-toggle="tooltip" title="Delete">
+                                        <button class="btn btn-danger btn-xs" data-title="Delete" >
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </p>
+                                </form>
+                        </dd>
+
+                    </dl>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<% include layouts/footer.ejs %>
